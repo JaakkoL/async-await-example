@@ -44,4 +44,17 @@ const asyncAwaitExample4 = async () => {
   console.log(`Promise 2 returned ${response2}`);
 }
 
-asyncAwaitExample4();
+// asyncAwaitExample4();
+
+const asyncAwaitExample5 = async () => {
+  const response = await sleep(1500, 'Response data');
+  return response;
+}
+
+asyncAwaitExample5()
+  .then(response => {
+    console.log(`Promise returned ${response}`)
+  })
+  .catch(error => {
+    console.error(error)
+  });

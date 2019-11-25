@@ -232,3 +232,29 @@ Slept for 1500ms.
 Promise 1 returned Response 1 data
 Promise 2 returned Response 2 data
 ```
+
+## Async functions are thenable
+- Async function returns `Promise`
+- Function return value is the resolved value (then).
+- If async function throws error, it's the rejected value (catch).
+
+```javascript
+const { sleep } = require('./util');
+
+const asyncAwaitExample5 = async () => {
+  const response = await sleep(1500, 'Response data');
+  return response;
+}
+
+asyncAwaitExample5()
+  .then(response => {
+    console.log(`Promise returned ${response}`)
+  })
+  .catch(error => {
+    console.error(error)
+  });
+
+// Logs to console.
+Slept for 1500ms.
+Promise returned Response data
+```
